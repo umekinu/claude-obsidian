@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-04-07
+updated: 2026-07-19
 tags:
   - meta
   - index
@@ -23,7 +23,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-04-15 | Total pages: 34 | Sources ingested: 2
+Last updated: 2026-07-19 | Total pages: 50 | Sources ingested: 2
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -85,6 +85,34 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 - [[2026-04-15-slides-and-release-session]] - Claude SEO v1.9.0 slides (15-slide HTML deck) + GitHub release v1.9.0 with PDF asset (status: complete)
 - [[2026-04-15-release-report-session]] - Claude SEO v1.9.0 Release Report PDF: dark theme, 13 pages, WeasyPrint layout fixes, Challenge v2 added (status: complete)
 - [[2026-04-14-claude-seo-v190-session]] - Claude SEO v1.9.0 Pro Hub Challenge integration: 5 submissions, 4 new skills, 4 review rounds, cybersecurity audit (status: complete)
+
+---
+
+## References
+
+- [[transport-fallback]] — transport fallback decision tree (CLI → MCP → filesystem); consulted by mutating skills (status: evergreen)
+- [[methodology-modes]] — short decision tree for LYT / PARA / Zettelkasten / Generic vault modes (status: evergreen)
+
+---
+
+## Folds
+
+- [[fold-k3-from-2026-04-23-to-2026-04-24-n8]] — first real DragonScale fold; 8 children spanning 2026-04-23 → 04-24 (status: complete)
+
+---
+
+## Meta & Reports
+
+- [[dashboard]] — Dataview dashboard: recent activity, seed pages, open questions
+- [[lint-report-2026-07-19]] — 2026-07-19 lint: 14 dead refs → 7 fixed, 6 orphans triaged, 15 frontmatter gaps
+- [[tiling-report-2026-04-24]] — first real semantic-tiling run (0 errors, 15 review pairs)
+- [[retrieval-benchmark-v1.7]] — 50-query benchmark corpus behind the v1.7 retrieval gate
+- [[boundary-frontier-2026-04-24]] — first real boundary-first autoresearch frontier run
+- [[2026-04-24-v1.6.0-release-session]] — v1.6.0 closeout session record
+- [[2026-04-10-backlink-empire-session]] — backlink-empire session note (cross-vault refs on hold per 2026-07-19 lint)
+- [[claude-obsidian-v1.2.0-release-session]] — v1.2.0 release session record
+- [[claude-obsidian-v1.4-release-session]] — v1.4 release session record
+- [[full-audit-and-system-setup-session]] — full audit + system setup session record
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-04-08
+updated: 2026-07-19
 tags:
   - meta
   - log
@@ -24,6 +24,57 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
+
+## [2026-07-19] lint | Link repair + hot-cache/index/log rebuild from git history
+
+- Ran /wiki-lint over 49 pages: 14 dead wikilink refs (9 targets), 6 orphans (2 genuine), 15 frontmatter gaps. Report: [[lint-report-2026-07-19]].
+- Fixed 7 refs (`6647754`): stripped stray `?` from 5 refs to [[How does the LLM Wiki pattern work]] (introduced by the 2026-04-24 autoresearch run); converted `[[wiki-cli]]`/`[[wiki-fold]]` to markdown links (skills have no vault page). 7 LOW refs on hold (cross-vault + missing canvas).
+- `8bc7884`: `scripts/boundary-score.py` Python 3.9 compat (`X | None` → `Optional[X]` in 4 signatures).
+- First-run `.vault-meta/transport.json` written: preferred `filesystem` (Obsidian CLI absent).
+- Found `scripts/wiki-lock.sh:156` calls `flock` — absent on macOS, so every `acquire` fails. Fix dispatched to a separate worktree session.
+- hot.md fully rewritten (prior cache was stale at 2026-05-17 "v1.7.1 unpushed"); index.md counts corrected + References/Folds/Meta catalog added; the 8 release entries below reconstructed from `c2d7575..HEAD` commit log, diffs, and CHANGELOG.
+
+## [2026-05-28] release | v1.9.2 promoted to public canonical
+
+- `00213b7`: public repo AgriciDaniel/claude-obsidian becomes the default install everywhere; marketplace.json switched to public form (`agricidaniel-claude-obsidian`, passes `claude plugin validate`); install slug corrected repo-wide; README SSS+ rewrite + SEO/GEO pass (H1 "Self-Organizing AI Second Brain", 4 verbatim GEO Q&As); adds CITATION.cff, PRIVACY.md, CODEOWNERS, FUNDING.yml.
+- `cb93ff6`: 1280×640 social preview card.
+
+## [2026-05-27] release | v1.9.2 — prompt-cache hardening (`73616fa`)
+
+- `contextual-prefix.py`: `cache_control` now attaches only above the 16 KB Haiku cacheable floor (pure, unit-tested `cache_control_for()`); cache telemetry logs `wrote/read` token counts only (egress posture preserved).
+- Explicit page paths fail cleanly: missing in-vault → exit 3, out-of-vault → exit 2 (was silent exit 0 / raw traceback). Dead `EXIT_NO_ADDRESS` removed.
+- `make test` → 9 hermetic suites.
+
+## [2026-05-18] release | v1.9.1 — v1.9.0 audit hardening
+
+- 6/6 remaining HIGH+MEDIUM closed (`3eb7ce6`, `f99d9c3`, `ef058c4`, `5cdfecf`): SessionStart stale-lock reaper hook; PostToolUse auto-commit opt-out via `.vault-meta/auto-commit.disabled`; symlink canonicalization in `wiki-lock.sh validate_path()`; `locks/.gitkeep`; rerank lock warnings → `hook.log`; setup-retrieve ollama-localhost assert.
+- SECURITY.md gains single-tenant threat model. `1b54a79`: IPv6 case-pattern quote fix + README badge bump. Tagged v1.9.1.
+
+## [2026-05-18] release | v1.9.0 — 10-principle thinking framework (`209aad9`)
+
+- New `/think` skill (#15): OBSERVE-OBSERVE-LISTEN-THINK-CONNECT-CONNECT-FEEL-ACCEPT-CREATE-GROW loop; every existing SKILL.md gains a skill-specific "How to think" appendix.
+- First-public-release hygiene: CONTRIBUTING, CODE_OF_CONDUCT, SECURITY, issue/PR templates, CI workflow (`make test` + frontmatter validation).
+- Also lands the CHANGELOG "1.8.2" fixes (no v1.8.2 tag exists): detect-transport `manual_override`, wiki-ingest agent +Bash tools + mode awareness, autoresearch web-egress hygiene, save Step 0 destination rule.
+- Same-day hardening: `d2f9d35` auto-commit pathspec blast-radius fix, `0e2469e` atomic chunk writes, `6655511` canonical-URL cascade to 8 files.
+
+## [2026-05-17] release | v1.8.1 — v1.8.0 ship-gate closure (`40a96e7`)
+
+- 4 items closed; the chair probe caught a real ship-blocker the verifier missed: all 6 wiki-mode templates failed YAML parsing (`created: {{date}}`). Zettel ID widened to 20 digits; `test_wiki_mode.py` → 17 assertions.
+
+## [2026-05-17] release | v1.8.0 — methodology modes (`dbba1da`)
+
+- New `wiki-mode` skill (#14) + `scripts/wiki-mode.py` router + `bin/setup-mode.sh` + 6 per-mode templates. LYT / PARA / Zettelkasten / Generic; `generic` preserves v1.7 behavior byte-for-byte.
+- `wiki-ingest` / `save` / `autoresearch` gain Mode awareness sections. `make test` → 8 suites. Compass: #1 on 5 of 7 axes (closes priority gap 5).
+
+## [2026-05-17] release | v1.7.2 — SSS+ convergence
+
+- Closes every remaining MEDIUM (M1-M10) + LOW (L1-L7) from the v1.7.0 audit (`eafd449`..`8047ed7`). Unicode-aware BM25 tokenizer (CJK/Cyrillic content no longer silently dropped); dead code pruned (`bm25_score()`, `--rebuild`, `--no-bm25` stubs); verifier agent gains git-hygiene + additive-without-pruning cuts.
+- Benchmark refresh (50 queries): v1.7 top-1 54.0% vs v1.6 22.0% (+32pp; error reduction +41% vs ≥30% gate — PASS).
+
+## [2026-05-17] release | v1.7.1 — audit-driven patch (`ca68bb6`..`f6164a8`)
+
+- BLOCKER B1 closed: contextual-prefix tier-1/2 egress now requires explicit `--allow-egress` (defaults to synthetic); setup-retrieve consent prompt; Data Privacy callout in wiki-retrieve.
+- 6 HIGH closed, including the new read-only pre-commit verifier agent (`agents/verifier.md`). Tagged v1.7.1.
 
 ## [2026-04-24] save | v1.6.0 public release notes (Teams, Karpathy-style)
 - Type: release doc + visual assets
