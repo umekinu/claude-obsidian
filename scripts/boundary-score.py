@@ -45,6 +45,7 @@ import re
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 VAULT_ROOT = Path(__file__).resolve().parent.parent
 WIKI_DIR = VAULT_ROOT / "wiki"
@@ -119,7 +120,7 @@ def included(path: Path, fm: dict) -> bool:
     return True
 
 
-def days_since(date_str: str | None) -> float:
+def days_since(date_str: Optional[str]) -> float:
     """Return days since the given YYYY-MM-DD string, or a large sentinel if missing."""
     if not date_str:
         return 10_000.0
@@ -152,7 +153,7 @@ def extract_wikilinks(body: str) -> set[str]:
     bullets in Obsidian often contain wikilinks.
     """
     cleaned: list[str] = []
-    fence_char: str | None = None
+    fence_char: Optional[str] = None
     fence_len: int = 0
     for line in body.splitlines():
         m = _FENCE_RE.match(line)
@@ -255,7 +256,7 @@ def score_page(title_key: str,
     }
 
 
-def run(top: int, want_json: bool, include_zero: bool, page_filter: str | None) -> int:
+def run(top: int, want_json: bool, include_zero: bool, page_filter: Optional[str]) -> int:
     pages = collect_pages()
     out_edges, in_edges = build_graph(pages)
     scored = [score_page(k, pages, out_edges, in_edges) for k in pages]
