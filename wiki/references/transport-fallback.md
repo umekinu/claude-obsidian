@@ -3,7 +3,6 @@ type: reference
 title: "Transport Fallback Decision Tree"
 status: evergreen
 related:
-  - "[[wiki-cli]]"
   - "[[mcp-setup]]"
 updated: 2026-05-17
 ---
