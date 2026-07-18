@@ -31,9 +31,39 @@ mkdir -p "$(dirname "$COUNTER_FILE")" || {
   exit 2
 }
 
+# Exclusive-lock inherited fd $1 with a $2-second timeout. Uses the flock CLI
+# where available (util-linux; Linux), else a python3 fcntl.flock fallback —
+# the flock utility does not exist on macOS. Either way the flock(2) lock
+# lives on the open file description, so it survives the helper process and
+# stays held by this shell until the fd is closed (i.e. script exit).
+lock_fd() {
+  local fd="$1" timeout="$2"
+  if command -v flock >/dev/null 2>&1; then
+    flock -x -w "$timeout" "$fd"
+  elif command -v python3 >/dev/null 2>&1; then
+    python3 -c '
+import errno, fcntl, sys, time
+fd = int(sys.argv[1])
+deadline = time.monotonic() + float(sys.argv[2])
+while True:
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        sys.exit(0)
+    except OSError as e:
+        if e.errno not in (errno.EAGAIN, errno.EACCES):
+            raise
+        if time.monotonic() >= deadline:
+            sys.exit(1)
+        time.sleep(0.1)
+' "$fd" "$timeout"
+  else
+    return 1
+  fi
+}
+
 # Acquire exclusive lock with 5-second timeout. Release automatically on scope exit.
 exec 9>"$LOCK_FILE"
-if ! flock -x -w 5 9; then
+if ! lock_fd 9 5; then
   echo "ERR: could not acquire address allocator lock within 5s" >&2
   exit 1
 fi

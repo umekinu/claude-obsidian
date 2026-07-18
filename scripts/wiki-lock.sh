@@ -147,13 +147,43 @@ is_alive() {
   kill -0 "$1" 2>/dev/null
 }
 
+# Exclusive-lock inherited fd $1 with a $2-second timeout. Uses the flock CLI
+# where available (util-linux; Linux), else a python3 fcntl.flock fallback —
+# the flock utility does not exist on macOS. Either way the flock(2) lock
+# lives on the open file description, so it survives the helper process and
+# stays held by this shell until the fd is closed.
+lock_fd() {
+  local fd="$1" timeout="$2"
+  if command -v flock >/dev/null 2>&1; then
+    flock -x -w "$timeout" "$fd"
+  elif command -v python3 >/dev/null 2>&1; then
+    python3 -c '
+import errno, fcntl, sys, time
+fd = int(sys.argv[1])
+deadline = time.monotonic() + float(sys.argv[2])
+while True:
+    try:
+        fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        sys.exit(0)
+    except OSError as e:
+        if e.errno not in (errno.EAGAIN, errno.EACCES):
+            raise
+        if time.monotonic() >= deadline:
+            sys.exit(1)
+        time.sleep(0.1)
+' "$fd" "$timeout"
+  else
+    return 1
+  fi
+}
+
 # Atomic meta-lock wrapper. Funcs that mutate LOCK_DIR call under this lock so
 # acquire/release/clear-stale don't race against each other.
 with_meta_lock() {
   ensure_dirs
-  # Use flock under bash's redirect; meta lock is short-lived per command.
+  # Lock fd 9 under bash's redirect; meta lock is short-lived per command.
   (
-    flock -x -w 5 9 || die "could not acquire meta-lock within 5s" 1
+    lock_fd 9 5 || die "could not acquire meta-lock within 5s" 1
     "$@"
   ) 9>"$META_LOCK"
 }
