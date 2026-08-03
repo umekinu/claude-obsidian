@@ -26,6 +26,8 @@ Usage:
   tiling-check.py --allow-remote-ollama # accept non-localhost OLLAMA_URL
 """
 
+from __future__ import annotations
+
 import argparse
 import fcntl
 import hashlib
