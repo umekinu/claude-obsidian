@@ -51,3 +51,8 @@ design) alongside [[preferences]] before doing any work.
 ---
 
 <!-- Newest entries go directly below this line. -->
+
+## 2026-08-03: Bundled too many unrelated changes into one working session
+**NG Action**: Landed several independent workstreams back-to-back in one continuous session (external-memory files, a pre-existing uncommitted feature, a recovered bugfix, a fork, and a full upstream-merge attempt) instead of finishing and verifying one before starting the next. This compounded into git complications (merge conflicts, a push sent to the wrong remote, a botched merge abort) that took much longer to unwind than the original tasks.
+**Correct Action**: When multiple independent changes are pending in the same vault/repo, sequence them — commit, verify, and confirm each one is clean before starting the next — rather than batching unrelated workstreams together.
+**Trigger**: Any session where more than one independent change (feature work, doc update, git housekeeping, remote/repo changes) is pending at the same time.
