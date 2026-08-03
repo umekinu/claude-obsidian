@@ -35,7 +35,8 @@ All source pages — summaries of ingested documents, transcripts, articles, and
 
 ## Papers
 
-<!-- Add paper source pages here -->
+> [!note] Moved
+> Academic papers are filed under `wiki/papers/` in 落合フォーマット, not here. See [[papers/_index|Papers Index]].
 
 ---
 

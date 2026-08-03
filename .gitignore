@@ -107,6 +107,14 @@ claude-canvas/
 # Codex CLI sentinel marker (0-byte read-only file created by `codex` runs)
 .codex
 
+# Local Claudian plugin install (personal environment, not part of the public repo)
+.claudian/
+.obsidian/plugins/realclaudian/
+.obsidian/themes/
+
+# R session history dropped by ad-hoc scratch work
+.Rhistory
+
 # User-specific attachments
 _attachments/
 

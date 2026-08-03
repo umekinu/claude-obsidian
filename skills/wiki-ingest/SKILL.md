@@ -343,6 +343,76 @@ Assign addresses sequentially during single-source-ingest for each source. Do no
 
 ---
 
+## Academic Paper Ingest (落合フォーマット)
+
+Trigger: the source is a peer-reviewed paper, preprint, or conference proceeding (typically a PDF dropped into `.raw/`). This section **replaces step 3** of Single Source Ingest for such sources; steps 4-11 (entities, concepts, index, hot, log, contradictions) proceed unchanged.
+
+Output lands in `wiki/papers/` rather than `wiki/sources/`.
+
+### Reading order
+
+Read in this order, not front-to-back:
+
+1. **Abstract** — the claim
+2. **Conclusion** — what the authors think they showed
+3. **Experiments / Methods** — whether they actually showed it
+4. **Related work** — where it sits in the literature
+
+Do not skim. The Methods section is where the ingest earns its value; a summary that only paraphrases the Abstract is not worth filing.
+
+### Summary format
+
+Six items, **each 500 characters or fewer**, written in Japanese, as hierarchical bullets:
+
+```markdown
+## 1. どんなもの？
+- …
+
+## 2. 先行研究と比べてどこがすごいの？
+- …
+
+## 3. 技術や手法の"キモ"はどこにある？
+- …
+
+## 4. どうやって有効だと検証した？
+- …
+
+## 5. 議論はあるか？
+- …
+
+## 6. 次に読むべき論文はあるか？
+- …
+```
+
+### 論文情報・リンク
+
+Every paper page carries a citation block in this form:
+
+```markdown
+### 論文情報・リンク
+- 著者, "タイトル," ジャーナル名, volume, no., ページ, 年
+```
+
+Include DOI / PMID / URL on the following lines when available.
+
+### Tagging and linking rules
+
+- **Auto-link existing frameworks.** If a framework already documented under `wiki/concepts/` appears in the paper (FTEM, PHV, ACT, etc.), wikilink it on first mention. Check `wiki/index.md` before deciding a concept is new.
+- **Item 6 becomes graph edges.** For each paper named under 「6. 次に読むべき論文」:
+  - already in the vault → connect with a wikilink
+  - not in the vault → record it in `wiki/gaps/` as a future ingest candidate
+- **Preserve technical terms in the original language.** Statistical methods and domain terminology stay untranslated — `Hedges' g`, `repeated measures ANOVA`, `smallest worthwhile change`. Translate only genuinely general vocabulary. Forced Japanese renderings of technical terms lose precision and break search.
+- **Statistics follow APA 7** when quoted in the summary (*p* values, effect sizes, CIs).
+
+### Integration notes
+
+- **Addresses**: paper pages are non-meta pages. If `DRAGONSCALE_ADDRESSES=1`, allocate an address exactly as for source pages.
+- **Locking**: `wiki/papers/` and `wiki/gaps/` writes require `wiki-lock acquire` like any other vault write.
+- **Mode routing**: use the `paper` content type — `PAPER_PATH=$(python3 scripts/wiki-mode.py route paper "Hooper 1995 Markers of Overtraining")`. Resolves to `wiki/papers/` under `generic`, `wiki/resources/papers/` under `para`, and the flat notes folder under `lyt` / `zettelkasten`. The 落合 six-item body is unchanged in every mode.
+- **Related skill**: `ochiai-summary` produces the same six items formatted for EndNote's Research Notes field. Use it when the deliverable is a reference-manager note rather than a vault page.
+
+---
+
 ## How to think (10-principle mapping)
 
 When working on this skill, apply the 10-principle loop. See [`skills/think/SKILL.md`](../think/SKILL.md) for the canonical framework.
