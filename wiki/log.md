@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Operation Log"
-updated: 2026-07-19
+updated: 2026-08-03
 tags:
   - meta
   - log
@@ -24,6 +24,16 @@ Entry format: `## [YYYY-MM-DD] operation | Title`
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`
 
 ---
+
+## [2026-08-03] session | External memory pair added; WIP committed; forked off upstream
+
+- Added `wiki/meta/mistakes.md` + `wiki/meta/preferences.md` as an append-only external-memory pair (AI mistake log + discovered user preferences), following the "Claude × Obsidian 連携ルール" pattern from a YouTube walkthrough. Read/write rules documented in `CLAUDE.md` under "External Memory (Mistakes & Preferences)".
+- Fixed the stale hot.md note claiming the wiki-lock macOS fix was "pending in its worktree" — it had actually already shipped in `c0254a9`.
+- Committed a paper-ingest (落合フォーマット) feature that had been sitting uncommitted in the working tree: `paper` page type routing in `scripts/wiki-mode.py`, `wiki-ingest` skill extended, `wiki/papers/` + `wiki/gaps/` added, draft proposal `_proposals/ochiai-summary-SKILL.md` (`7155eac`).
+- Recovered an abandoned Python 3.9 compat fix for `scripts/tiling-check.py` (`from __future__ import annotations`) from the orphaned-looking `competent-shirley-373cca` worktree and applied it to main (`25b8a38`).
+- **Important discovery**: `AgriciDaniel/claude-obsidian` is not a repo this user owns — it's Daniel Agrici's public OSS project (README, CODEOWNERS, CITATION.cff, and git author history all confirm this). It had also moved far ahead: upstream is now at **v2.1.0**, a major restructure (Python package `claude_obsidian/`, audited release manifest + SHA256SUMS, native Windows support, no more demo `wiki/`/`CLAUDE.md` content shipped in the repo root). This local clone was still on the old v1.9.2-era history.
+- Forked to `umekinu/claude-obsidian`. Remote `origin` now points there; the original is renamed to `upstream`. Pushed the 7 local commits to the fork (force-push, safe — personal fork, no collaborators). A `git merge upstream/main` was attempted to reconcile histories, hit ~20 conflicts (mostly modify/delete on the very files this vault re-purposes as demo content), and was abandoned in favor of just keeping this fork on its own v1.9.2+customizations line rather than chasing upstream's v2.x rewrite.
+- Local `.obsidian/*.json` personal UI state (theme, accent color, `realclaudian` plugin entry, graph view layout, workspace pointing at personal Excalidraw files) was reverted rather than committed, to avoid clobbering the repo's shipped default onboarding view.
 
 ## [2026-07-19] lint | Link repair + hot-cache/index/log rebuild from git history
 

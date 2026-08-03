@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-07-19T21:30:00
+updated: 2026-08-03T12:15:00
 tags:
   - meta
   - hot-cache
@@ -20,13 +20,20 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-07-19. Maintenance session: first lint in ~3 months, dead-link repair, and this cache rebuilt from git history (`c2d7575..HEAD`, 38 commits) — the prior cache still claimed "v1.7.1 unpushed, awaiting go," which was two months stale.
+2026-08-03. This vault is now a **personal fork**, not a live mirror of upstream — see below before assuming version facts from before this date still hold.
 
 ## Key Recent Facts
 
-- Plugin is at **v1.9.2, public canonical** since 2026-05-28 (`00213b7`): the public repo AgriciDaniel/claude-obsidian is the default install; AI Marketing Hub Pro repositioned as early access. Everything v1.7.1 → v1.9.2 is shipped and tagged.
-- Release line since the last cache write: **v1.7.1** (egress-consent BLOCKER + 6 HIGH closed; verifier agent added) → **v1.7.2** (all MEDIUM/LOW closed; Unicode BM25 tokenizer; benchmark 54% top-1, +41% error reduction) → **v1.8.0** (methodology modes, skill #14) → **v1.8.1** (ship-gate closure; all 6 mode templates had failed YAML parse) → **v1.9.0** (10-principle `/think` framework, skill #15; repo hygiene + CI) → **v1.9.1** (audit hardening: stale-lock reaper, auto-commit opt-out, symlink canonicalization) → **v1.9.2** (prompt-cache hardening: 16 KB Haiku cache floor + telemetry; 9 test suites).
-- Tag/CHANGELOG drift: CHANGELOG's "1.8.2" fixes landed inside the v1.9.0 commit `209aad9`; no v1.8.2 tag exists.
+- **This is `umekinu/claude-obsidian`, a fork of `AgriciDaniel/claude-obsidian`** (Daniel Agrici's public OSS project — confirmed via README, CODEOWNERS, CITATION.cff, and git author history; not something this user maintains upstream). Remote `origin` → the fork, `upstream` → Daniel Agrici's original.
+- This fork's `main` is pinned at a **customized v1.9.2-era snapshot plus 7 local commits** (external-memory pair, paper-ingest/落合フォーマット feature, tiling-check.py Py3.9 fix). It does **not** track upstream's v2.0.0/v2.1.0 line.
+- Upstream (`AgriciDaniel/claude-obsidian`) has since shipped **v2.0.0 and v2.1.0**: a major restructure into a `claude_obsidian/` Python package, an audited release manifest (`RELEASE_MANIFEST.json` + `SHA256SUMS`), native Windows support, and — importantly — it **no longer ships demo `wiki/` content or `CLAUDE.md` in the repo root** (moved to `examples/sample-vault/` and `templates/vault/`). A `git merge upstream/main` was attempted once, produced ~20 conflicts (mostly modify/delete on exactly the files this fork customizes), and was deliberately abandoned rather than reconciled.
+- Plugin metadata still says v1.9.2 in this fork's own files (CITATION.cff etc.) — that's accurate for *this fork's* lineage, just stale relative to upstream.
+
+## Recent Changes (2026-08-03)
+
+- `wiki/meta/mistakes.md` + `wiki/meta/preferences.md` added (external-memory pair). Read/write rules in `CLAUDE.md`. See [[log]] for the full session entry.
+- Paper-ingest (落合フォーマット) WIP committed (`7155eac`); `tiling-check.py` Py3.9 fix recovered from a worktree and applied (`25b8a38`).
+- Forked to `umekinu/claude-obsidian` (`origin`); original renamed to `upstream`. 7 commits pushed to the fork.
 
 ## Recent Changes (2026-07-19)
 
@@ -38,9 +45,8 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Active Threads
 
-- ~~wiki-lock macOS fix pending in its worktree~~ — done, see above.
 - Methodology mode unset (`.vault-meta/mode.json` absent → `generic` fallback). Deliberate default; `bash bin/setup-mode.sh` to change.
 - Lint LOW items on hold: 6 cross-vault refs in session notes + `[[AI Marketing Hub Cover Images Canvas]]` in [[overview]].
-- `main` is 4 commits ahead of `origin/main` (unpushed): `6647754`, `370a0d1`, `8bc7884`, `c0254a9`.
-- WIP in the working tree (2026-08-03, uncommitted at time of writing): paper-ingest support for 落合フォーマット — `scripts/wiki-mode.py` routes a new `paper` page type to `wiki/papers/`, `skills/wiki-ingest/SKILL.md` extended, `wiki/papers/_index.md` and `wiki/gaps/_index.md` added, plus a draft `_proposals/ochiai-summary-SKILL.md`. Also present: local Claudian plugin install (`.claudian/`, `.obsidian/plugins/realclaudian/`) for testing the Obsidian-native Claude Code integration.
-- New this session: `wiki/meta/mistakes.md` and `wiki/meta/preferences.md` added as an external-memory pair (AI mistake log + discovered user preferences), per the "Claude × Obsidian 連携ルール" pattern from a YouTube walkthrough. Read/write rules documented in `CLAUDE.md`.
+- Local Claudian plugin install present (`.claudian/`, `.obsidian/plugins/realclaudian/`) for testing the Obsidian-native Claude Code integration — gitignored, personal-environment only, not part of the fork's tracked tree.
+- Open decision, not yet made: whether/how to selectively pull any of upstream's v2.0.0/v2.1.0 work (native Windows support, security-audit hardening) into this fork later. Deliberately deferred, not forgotten — see [[log]] 2026-08-03 entry for why the straight merge was abandoned.
+- `origin` = `umekinu/claude-obsidian` (this fork), `upstream` = `AgriciDaniel/claude-obsidian` (Daniel Agrici's original, now 29+ commits ahead on its own v2.x line — histories have diverged, not simply ahead/behind).
