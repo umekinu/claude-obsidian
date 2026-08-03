@@ -29,6 +29,34 @@ Run `/wiki` to scaffold a new vault or check setup status.
 
 Run "lint the wiki" every 10-15 ingests to catch orphans and gaps.
 
+## External Memory (Mistakes & Preferences)
+
+Two append-only files extend the wiki as session-to-session memory, distinct from the domain wiki content:
+
+- [wiki/meta/mistakes.md](wiki/meta/mistakes.md) — corrected Claude behavior patterns.
+- [wiki/meta/preferences.md](wiki/meta/preferences.md) — working-style preferences discovered during sessions (the static profile — affiliation, response language, citation format — stays in this file, not there).
+
+**Read**: at the start of any session that will touch this vault, read both files (they're short by design) alongside `wiki/hot.md`.
+
+**Write to `mistakes.md`** only when all three hold: the user gave an explicit correction (not a self-noticed issue), the pattern is likely to recur, and it can be stated as a concrete do/don't. Entry format:
+
+```
+## YYYY-MM-DD: [one-line description]
+**NG Action**: what happened
+**Correct Action**: what should happen instead
+**Trigger**: when this applies
+```
+
+**Write to `preferences.md`** when the user states or demonstrates a preference not already covered in this file or in `CLAUDE.md`. Entry format:
+
+```
+## YYYY-MM-DD: [short label]
+**Observation**: what was noticed
+**Applies to**: when this applies
+```
+
+New entries always go at the top; never edit past entries.
+
 ## Cross-Project Access
 
 To reference this wiki from another Claude Code project, add to that project's CLAUDE.md:

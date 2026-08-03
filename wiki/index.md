@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-07-19
+updated: 2026-08-03
 tags:
   - meta
   - index
@@ -15,6 +15,8 @@ related:
   - "[[concepts/_index]]"
   - "[[entities/_index]]"
   - "[[sources/_index]]"
+  - "[[papers/_index]]"
+  - "[[gaps/_index]]"
   - "[[LLM Wiki Pattern]]"
   - "[[Hot Cache]]"
   - "[[Compounding Knowledge]]"
@@ -23,7 +25,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-07-19 | Total pages: 50 | Sources ingested: 2
+Last updated: 2026-08-03 | Total pages: 52 | Sources ingested: 2
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -66,6 +68,22 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ---
 
+## Papers
+
+Academic papers summarised in 落合フォーマット. See [[papers/_index|Papers Index]].
+
+<!-- Add paper pages here -->
+
+---
+
+## Gaps
+
+Future ingest candidates surfaced by 「6. 次に読むべき論文」. See [[gaps/_index|Gaps Index]].
+
+<!-- Add gap entries here -->
+
+---
+
 ## Questions
 
 - [[How does the LLM Wiki pattern work]] — how the pattern works and why it outperforms RAG at human scale (status: developing)
@@ -103,6 +121,8 @@ Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[
 
 ## Meta & Reports
 
+- [[mistakes]] — append-only log of corrected Claude behavior patterns; read alongside [[preferences]] at session start (status: evergreen)
+- [[preferences]] — append-only log of working-style preferences discovered during sessions, distinct from the static profile in `CLAUDE.md` (status: evergreen)
 - [[dashboard]] — Dataview dashboard: recent activity, seed pages, open questions
 - [[lint-report-2026-07-19]] — 2026-07-19 lint: 14 dead refs → 7 fixed, 6 orphans triaged, 15 frontmatter gaps
 - [[tiling-report-2026-04-24]] — first real semantic-tiling run (0 errors, 15 review pairs)

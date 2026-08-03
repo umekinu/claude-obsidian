@@ -33,11 +33,14 @@ Navigation: [[index]] | [[log]] | [[overview]]
 - Fixed 7 dead wikilinks (`6647754`): stray `?` stripped from 5 refs to [[How does the LLM Wiki pattern work]]; `wiki-cli`/`wiki-fold` skill refs converted to markdown links. Report: [[lint-report-2026-07-19]]. 7 LOW refs (cross-vault + missing canvas) on hold for individual review.
 - `scripts/boundary-score.py`: Python 3.9 compat fix (`X | None` → `Optional[X]`, `8bc7884`).
 - `.vault-meta/transport.json` written for the first time — preferred transport `filesystem` (Obsidian CLI absent on this Mac).
-- **Bug found**: `scripts/wiki-lock.sh:156` calls `flock`, which doesn't exist on macOS — every `acquire` fails, silently disabling multi-writer safety. Fix in progress in a separate worktree session (`claude/festive-gates-349eaa`).
+- ~~Bug found: `scripts/wiki-lock.sh:156` calls `flock`, which doesn't exist on macOS~~ — **resolved** in `c0254a9` ("fix(locks): portable flock for macOS in wiki-lock.sh + allocate-address.sh"): uses the `flock` CLI where available, else a `python3 fcntl.flock` fallback. Shipped the same day as this cache entry was written; the note below was simply never updated.
 - [[index]] rebuilt (counts + new References/Folds/Meta catalog sections); [[log]] backfilled with 9 release entries reconstructed from commit history.
 
 ## Active Threads
 
-- wiki-lock macOS fix pending in its worktree; merge when done.
+- ~~wiki-lock macOS fix pending in its worktree~~ — done, see above.
 - Methodology mode unset (`.vault-meta/mode.json` absent → `generic` fallback). Deliberate default; `bash bin/setup-mode.sh` to change.
 - Lint LOW items on hold: 6 cross-vault refs in session notes + `[[AI Marketing Hub Cover Images Canvas]]` in [[overview]].
+- `main` is 4 commits ahead of `origin/main` (unpushed): `6647754`, `370a0d1`, `8bc7884`, `c0254a9`.
+- WIP in the working tree (2026-08-03, uncommitted at time of writing): paper-ingest support for 落合フォーマット — `scripts/wiki-mode.py` routes a new `paper` page type to `wiki/papers/`, `skills/wiki-ingest/SKILL.md` extended, `wiki/papers/_index.md` and `wiki/gaps/_index.md` added, plus a draft `_proposals/ochiai-summary-SKILL.md`. Also present: local Claudian plugin install (`.claudian/`, `.obsidian/plugins/realclaudian/`) for testing the Obsidian-native Claude Code integration.
+- New this session: `wiki/meta/mistakes.md` and `wiki/meta/preferences.md` added as an external-memory pair (AI mistake log + discovered user preferences), per the "Claude × Obsidian 連携ルール" pattern from a YouTube walkthrough. Read/write rules documented in `CLAUDE.md`.
