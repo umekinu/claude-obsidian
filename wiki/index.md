@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-08-03
+updated: 2026-08-04
 tags:
   - meta
   - index
@@ -25,7 +25,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-08-03 | Total pages: 52 | Sources ingested: 2
+Last updated: 2026-08-04 | Total pages: 55 | Sources ingested: 2
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -110,6 +110,7 @@ Future ingest candidates surfaced by 「6. 次に読むべき論文」. See [[ga
 
 - [[transport-fallback]] — transport fallback decision tree (CLI → MCP → filesystem); consulted by mutating skills (status: evergreen)
 - [[methodology-modes]] — short decision tree for LYT / PARA / Zettelkasten / Generic vault modes (status: evergreen)
+- [[tagging-taxonomy]] — gtd/kind/lens tag axes replacing folder-based organization; single-select gtd/kind, multi-select lens (status: evergreen)
 
 ---
 

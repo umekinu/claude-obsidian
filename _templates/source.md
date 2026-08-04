@@ -12,6 +12,9 @@ created: <% tp.date.now("YYYY-MM-DD") %>
 updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - source
+gtd: inbox
+kind: fact
+lens: []
 status: seed
 related: []
 sources: []

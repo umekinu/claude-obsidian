@@ -7,6 +7,9 @@ created: <% tp.date.now("YYYY-MM-DD") %>
 updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - question
+gtd: inbox
+kind: question
+lens: []
 status: developing
 related: []
 sources: []

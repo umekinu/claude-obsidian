@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-08-03T12:15:00
+updated: 2026-08-04T00:00:00
 tags:
   - meta
   - hot-cache
@@ -12,6 +12,7 @@ related:
   - "[[Wiki Map]]"
   - "[[getting-started]]"
   - "[[lint-report-2026-07-19]]"
+  - "[[tagging-taxonomy]]"
 ---
 
 # Recent Context
@@ -20,7 +21,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-08-03. This vault is now a **personal fork**, not a live mirror of upstream — see below before assuming version facts from before this date still hold.
+2026-08-04. This vault is now a **personal fork**, not a live mirror of upstream — see below before assuming version facts from before this date still hold.
 
 ## Key Recent Facts
 
@@ -28,6 +29,10 @@ Navigation: [[index]] | [[log]] | [[overview]]
 - This fork's `main` is pinned at a **customized v1.9.2-era snapshot plus 7 local commits** (external-memory pair, paper-ingest/落合フォーマット feature, tiling-check.py Py3.9 fix). It does **not** track upstream's v2.0.0/v2.1.0 line.
 - Upstream (`AgriciDaniel/claude-obsidian`) has since shipped **v2.0.0 and v2.1.0**: a major restructure into a `claude_obsidian/` Python package, an audited release manifest (`RELEASE_MANIFEST.json` + `SHA256SUMS`), native Windows support, and — importantly — it **no longer ships demo `wiki/` content or `CLAUDE.md` in the repo root** (moved to `examples/sample-vault/` and `templates/vault/`). A `git merge upstream/main` was attempted once, produced ~20 conflicts (mostly modify/delete on exactly the files this fork customizes), and was deliberately abandoned rather than reconciled.
 - Plugin metadata still says v1.9.2 in this fork's own files (CITATION.cff etc.) — that's accurate for *this fork's* lineage, just stale relative to upstream.
+
+## Recent Changes (2026-08-04)
+
+- Vault organization decision: **folders → tags**. New taxonomy documented in [[tagging-taxonomy]]: `gtd` (inbox/pending/waiting/reading/maybe/action/done/reference, single-select), `kind` (fact/insight/question/idea/wish/others, single-select), `lens` (art/science/design/engineering/bz/com, multi-select). Migration mechanics for existing folder-based notes not yet decided.
 
 ## Recent Changes (2026-08-03)
 

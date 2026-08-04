@@ -1,7 +1,7 @@
 ---
 type: preference
 title: "Preferences Log"
-updated: 2026-08-03
+updated: 2026-08-04
 tags:
   - meta
   - preferences
@@ -43,3 +43,7 @@ Append-only. New entries go at the TOP. Never edit past entries.
 ---
 
 <!-- Newest entries go directly below this line. -->
+
+## 2026-08-04: Shifted from folder-based to tag-based organization
+**Observation**: User noted a change in working policy — moving away from Obsidian folder-based organization toward tag-based organization, in the context of wanting the vault to stay tidy over time.
+**Applies to**: How new content should be filed/organized going forward. Relevant to the vault's `methodology mode` setting (`.vault-meta/mode.json`, `bin/setup-mode.sh`) — no mode is currently set (generic default), which is folder-oriented (`wiki/sources/`, `entities/`, `concepts/`). A mode more aligned with tag-based, flatter organization (e.g. `zettelkasten`) has not yet been formally selected; this entry records the stated intent pending that decision.
