@@ -3,6 +3,7 @@ type: concept
 title: "Persistent Wiki Artifact"
 created: 2026-04-24
 updated: 2026-04-24
+address: c-000003
 tags:
   - llm-wiki
   - knowledge-management

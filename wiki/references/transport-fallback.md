@@ -2,9 +2,8 @@
 type: reference
 title: "Transport Fallback Decision Tree"
 status: evergreen
-related:
-  - "[[mcp-setup]]"
-updated: 2026-05-17
+related: []
+updated: 2026-08-04
 ---
 
 # Transport Fallback Decision Tree

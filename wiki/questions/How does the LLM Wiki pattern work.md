@@ -16,6 +16,7 @@ related:
   - "[[Hot Cache]]"
   - "[[index]]"
   - "[[Wiki vs RAG]]"
+  - "[[questions/_index]]"
 sources: []
 ---
 

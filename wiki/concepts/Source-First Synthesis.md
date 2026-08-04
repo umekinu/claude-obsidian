@@ -3,6 +3,7 @@ type: concept
 title: "Source-First Synthesis"
 created: 2026-04-24
 updated: 2026-04-24
+address: c-000005
 tags:
   - llm-wiki
   - synthesis
