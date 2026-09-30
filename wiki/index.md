@@ -25,7 +25,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-09-30 | Total pages: 57 | Sources ingested: 2
+Last updated: 2026-09-30 | Total pages: 58 | Sources ingested: 2
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -122,6 +122,7 @@ Future ingest candidates surfaced by 「6. 次に読むべき論文」. See [[ga
 
 ## Meta & Reports
 
+- [[2026-09-30-git-housekeeping-session]] — session record: hot.md review (stale lines fixed), leftover uncommitted changes committed by theme (Obsidian property types, role-split SOP draft, plugin enables)
 - [[2026-09-30-kaizen-log-and-mobile-access-session]] — session record: mobile Claude vault access (remote Cowork vs. Google Drive), mistakes → claude-kaizen rename, Improvement-type entries
 - [[2026-09-01-memory-and-correction-rules-session]] — session record: correction-formatting bold rule, vault learning-mechanism review, scope of the "don't save/learn" instruction (Claude memory vs. vault), and the auto-session-logging decision (full-session auto-save to vault; "don't save/learn" wording still open)
 - [[claude-kaizen]] — append-only log of corrected Claude behavior patterns / improvement points (renamed from `mistakes` on 2026-09-30); read alongside [[preferences]] at session start (status: evergreen)

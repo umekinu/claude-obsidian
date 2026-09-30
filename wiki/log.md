@@ -19,6 +19,11 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-09-30] save | Hot Cache Review & Git Housekeeping
+- Type: session
+- Location: wiki/meta/2026-09-30-git-housekeeping-session.md
+- From: hot.md summary (fixed stale Last Updated / "not pushed" lines), then committed leftover uncommitted changes by theme (Obsidian property types + daily-notes, role-split SOP draft, plugin enables) and reverted workspace.json churn
+
 ## [2026-09-30] save | Kaizen Log & Mobile Vault Access
 - Type: session
 - Location: wiki/meta/2026-09-30-kaizen-log-and-mobile-access-session.md

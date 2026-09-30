@@ -21,7 +21,7 @@ Navigation: [[index]] | [[log]] | [[overview]]
 
 ## Last Updated
 
-2026-08-04. This vault is now a **personal fork**, not a live mirror of upstream — see below before assuming version facts from before this date still hold.
+2026-09-30. This vault is now a **personal fork**, not a live mirror of upstream — see below before assuming version facts from before this date still hold.
 
 ## Key Recent Facts
 
@@ -35,8 +35,9 @@ Navigation: [[index]] | [[log]] | [[overview]]
 - `wiki/meta/mistakes.md` renamed to [[claude-kaizen]] (aliases `mistakes` / `Mistakes Log` keep old links working). It now holds two entry types: **Correction** and **Improvement** (`Current` / `Better` / `Trigger`). Claude-noticed improvements are recorded only after Dr. Tai approves. Read at session start alongside [[preferences]], per `CLAUDE.md`.
 - New kaizen rule (Correction): check `CLAUDE.md` and the relevant folder for an existing mechanism before proposing a new file/rule/workflow.
 - Open thread: mobile Claude cannot read this vault. Plan is to try remote Cowork / Claude Code from the mobile app first; Google Drive migration (or a partial mirror of `hot.md` / `index.md`) is the fallback. Not yet executed.
-- Commit `88c26f8` bundled the previously uncommitted 2026-09-01 memory-rules work with today's rename. `main` is ahead of `origin` and not yet pushed.
+- Commit `88c26f8` bundled the previously uncommitted 2026-09-01 memory-rules work with today's rename. ~~`main` is ahead of `origin` and not yet pushed.~~ — since pushed; `main` = `origin/main` as of the later git-housekeeping session.
 - See [[2026-09-30-kaizen-log-and-mobile-access-session]].
+- Later session: leftover uncommitted changes committed by theme — Obsidian property types for `gtd`/`kind`/`lens` + daily-note format (`2ec6d8f`), vibe-local / Obsidian-Claude role-split SOP draft in `00_Resources/` (`5da63ea`), plugin enables (`83c26ad`); `workspace.json` churn reverted. Open: gitignore `workspace.json`. See [[2026-09-30-git-housekeeping-session]].
 
 ## Recent Changes (2026-09-01)
 
