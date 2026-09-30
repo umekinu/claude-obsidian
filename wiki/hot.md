@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-09-01T00:00:00
+updated: 2026-09-30T00:00:00
 tags:
   - meta
   - hot-cache
@@ -29,6 +29,14 @@ Navigation: [[index]] | [[log]] | [[overview]]
 - This fork's `main` is pinned at a **customized v1.9.2-era snapshot plus 7 local commits** (external-memory pair, paper-ingest/落合フォーマット feature, tiling-check.py Py3.9 fix). It does **not** track upstream's v2.0.0/v2.1.0 line.
 - Upstream (`AgriciDaniel/claude-obsidian`) has since shipped **v2.0.0 and v2.1.0**: a major restructure into a `claude_obsidian/` Python package, an audited release manifest (`RELEASE_MANIFEST.json` + `SHA256SUMS`), native Windows support, and — importantly — it **no longer ships demo `wiki/` content or `CLAUDE.md` in the repo root** (moved to `examples/sample-vault/` and `templates/vault/`). A `git merge upstream/main` was attempted once, produced ~20 conflicts (mostly modify/delete on exactly the files this fork customizes), and was deliberately abandoned rather than reconciled.
 - Plugin metadata still says v1.9.2 in this fork's own files (CITATION.cff etc.) — that's accurate for *this fork's* lineage, just stale relative to upstream.
+
+## Recent Changes (2026-09-30)
+
+- `wiki/meta/mistakes.md` renamed to [[claude-kaizen]] (aliases `mistakes` / `Mistakes Log` keep old links working). It now holds two entry types: **Correction** and **Improvement** (`Current` / `Better` / `Trigger`). Claude-noticed improvements are recorded only after Dr. Tai approves. Read at session start alongside [[preferences]], per `CLAUDE.md`.
+- New kaizen rule (Correction): check `CLAUDE.md` and the relevant folder for an existing mechanism before proposing a new file/rule/workflow.
+- Open thread: mobile Claude cannot read this vault. Plan is to try remote Cowork / Claude Code from the mobile app first; Google Drive migration (or a partial mirror of `hot.md` / `index.md`) is the fallback. Not yet executed.
+- Commit `88c26f8` bundled the previously uncommitted 2026-09-01 memory-rules work with today's rename. `main` is ahead of `origin` and not yet pushed.
+- See [[2026-09-30-kaizen-log-and-mobile-access-session]].
 
 ## Recent Changes (2026-09-01)
 

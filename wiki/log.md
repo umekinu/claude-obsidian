@@ -19,6 +19,11 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-09-30] save | Kaizen Log & Mobile Vault Access
+- Type: session
+- Location: wiki/meta/2026-09-30-kaizen-log-and-mobile-access-session.md
+- From: conversation on mobile Claude's lack of vault access (remote Cowork vs. Google Drive), renaming mistakes.md to claude-kaizen.md, and adding Improvement-type entries
+
 ## [2026-09-01] update | Memory, Correction-Formatting & Auto-Logging Rules
 - Type: session (updated same-session)
 - Location: wiki/meta/2026-09-01-memory-and-correction-rules-session.md
