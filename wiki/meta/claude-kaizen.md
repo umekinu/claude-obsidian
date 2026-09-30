@@ -83,6 +83,11 @@ design) alongside [[preferences]] before doing any work.
 
 <!-- Newest entries go directly below this line. -->
 
+## 2026-09-30: [Improvement] Check for uncommitted changes before editing the vault
+**Current**: Edited `CLAUDE.md`, `wiki/index.md`, and `preferences.md` first, and only discovered at commit time that the 2026-09-01 work in those same files was still uncommitted — forcing a decision on how to split or bundle the changes after the fact.
+**Better**: Before editing, check `git status` (or ask Dr. Tai to run it when Claude cannot run git from the current surface, e.g. claude.ai chat). If uncommitted changes exist, agree on how to handle them first (commit them separately, or bundle them by theme) so the new work never gets tangled with old work.
+**Trigger**: Start of any session that will modify files in this vault.
+
 ## 2026-09-30: [Correction] Proposed a new mechanism without checking the vault's existing one
 **NG Action**: Asked how to record improvement points so answers improve automatically, Claude proposed creating a new feedback file plus a `CLAUDE.md` reference — without first reading `CLAUDE.md` or `wiki/meta/`, where the `mistakes.md` / `preferences.md` external-memory pair already served exactly that purpose. Only discovered the overlap when about to implement.
 **Correct Action**: Before proposing any new file, rule, or workflow for this vault, read `CLAUDE.md` and list the relevant folder (e.g. `wiki/meta/`) to check whether an existing mechanism already covers it; then propose extending that mechanism rather than adding a parallel one.
