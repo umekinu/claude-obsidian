@@ -1,0 +1,7 @@
+{
+  "types": {
+    "gtd": "text",
+    "kind": "text",
+    "lens": "multitext"
+  }
+}
