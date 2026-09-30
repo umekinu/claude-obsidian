@@ -19,6 +19,21 @@ Navigation: [[index]] | [[hot]] | [[overview]]
 
 Append-only. New entries go at the TOP. Never edit past entries.
 
+## [2026-09-01] update | Memory, Correction-Formatting & Auto-Logging Rules
+- Type: session (updated same-session)
+- Location: wiki/meta/2026-09-01-memory-and-correction-rules-session.md
+- From: finalized the wording of the account-level "don't save/learn" instruction (mcp__memory__-only scope, standing Vault setups count as explicit request, confirm-before-save for financial/health/personnel-evaluation content); also recorded in wiki/meta/preferences.md
+
+## [2026-09-01] update | Memory, Correction-Formatting & Auto-Logging Rules
+- Type: session (updated same-session)
+- Location: wiki/meta/2026-09-01-memory-and-correction-rules-session.md
+- From: continuation of the same session — added the auto-session-logging decision (full-session auto-save to vault, Claude's own mcp__memory__ excluded) and logged the still-open question of tightening the "don't save/learn" instruction wording
+
+## [2026-09-01] save | Memory & Correction-Formatting Rules
+- Type: session
+- Location: wiki/meta/2026-09-01-memory-and-correction-rules-session.md
+- From: conversation on the text-correction bold-formatting rule, the vault's mistakes/preferences learning mechanism, and clarifying that the account-level "don't save/learn from this conversation" instruction applies to Claude's own memory, not to vault writes
+
 Entry format: `## [YYYY-MM-DD] operation | Title`
 
 Parse recent entries: `grep "^## \[" wiki/log.md | head -10`

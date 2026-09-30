@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Hot Cache"
-updated: 2026-08-04T00:00:00
+updated: 2026-09-01T00:00:00
 tags:
   - meta
   - hot-cache
@@ -29,6 +29,14 @@ Navigation: [[index]] | [[log]] | [[overview]]
 - This fork's `main` is pinned at a **customized v1.9.2-era snapshot plus 7 local commits** (external-memory pair, paper-ingest/落合フォーマット feature, tiling-check.py Py3.9 fix). It does **not** track upstream's v2.0.0/v2.1.0 line.
 - Upstream (`AgriciDaniel/claude-obsidian`) has since shipped **v2.0.0 and v2.1.0**: a major restructure into a `claude_obsidian/` Python package, an audited release manifest (`RELEASE_MANIFEST.json` + `SHA256SUMS`), native Windows support, and — importantly — it **no longer ships demo `wiki/` content or `CLAUDE.md` in the repo root** (moved to `examples/sample-vault/` and `templates/vault/`). A `git merge upstream/main` was attempted once, produced ~20 conflicts (mostly modify/delete on exactly the files this fork customizes), and was deliberately abandoned rather than reconciled.
 - Plugin metadata still says v1.9.2 in this fork's own files (CITATION.cff etc.) — that's accurate for *this fork's* lineage, just stale relative to upstream.
+
+## Recent Changes (2026-09-01)
+
+- New correction-formatting rule logged in [[preferences]]: when Claude revises Dr. Tai's text, show the full revised Markdown, bold only changed/added parts, list deletions briefly at the end only if needed, and flag anything needing confirmation separately under "要確認".
+- Clarified scope of Dr. Tai's account-level "don't save/learn from this conversation" instruction: it applies to Claude's own personal-memory system (`mcp__memory__`), not to this vault — vault writes/saves from conversations remain welcome. Recorded in Claude's personal memory and in [[2026-09-01-memory-and-correction-rules-session]].
+- New `Auto-Session-Logging (2026-09-01+)` rule added to `CLAUDE.md`: every session touching this vault now auto-files a full session note at session end, bypassing `/save`'s usual Skip-curation filter. `skills/save/SKILL.md` itself left unmodified; the override lives in `CLAUDE.md`.
+- Finalized the "don't save/learn" account instruction wording (2026-09-01, see [[preferences]]): scope is Claude's own `mcp__memory__` only; Vault/file saves are exempt (a standing setup like Auto-Session-Logging counts as "explicit request"); before saving financial/health/personnel-evaluation-type sensitive content anywhere, Claude must summarize and confirm with Dr. Tai first. Dr. Tai still needs to paste this into the account's custom-instruction settings — Claude cannot edit that setting directly.
+- See [[2026-09-01-memory-and-correction-rules-session]] for the full session record.
 
 ## Recent Changes (2026-08-04)
 

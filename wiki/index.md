@@ -1,7 +1,7 @@
 ---
 type: meta
 title: "Wiki Index"
-updated: 2026-08-04
+updated: 2026-09-01
 tags:
   - meta
   - index
@@ -25,7 +25,7 @@ related:
 
 # Wiki Index
 
-Last updated: 2026-08-04 | Total pages: 55 | Sources ingested: 2
+Last updated: 2026-09-01 | Total pages: 56 | Sources ingested: 2
 
 Navigation: [[overview]] | [[log]] | [[hot]] | [[dashboard]] | [[Wiki Map]] | [[getting-started]]
 
@@ -122,7 +122,8 @@ Future ingest candidates surfaced by 「6. 次に読むべき論文」. See [[ga
 
 ## Meta & Reports
 
-- [[mistakes]] — append-only log of corrected Claude behavior patterns; read alongside [[preferences]] at session start (status: evergreen)
+- [[2026-09-01-memory-and-correction-rules-session]] — session record: correction-formatting bold rule, vault learning-mechanism review, scope of the "don't save/learn" instruction (Claude memory vs. vault), and the auto-session-logging decision (full-session auto-save to vault; "don't save/learn" wording still open)
+- [[claude-kaizen]] — append-only log of corrected Claude behavior patterns / improvement points (renamed from `mistakes` on 2026-09-30); read alongside [[preferences]] at session start (status: evergreen)
 - [[preferences]] — append-only log of working-style preferences discovered during sessions, distinct from the static profile in `CLAUDE.md` (status: evergreen)
 - [[dashboard]] — Dataview dashboard: recent activity, seed pages, open questions
 - [[lint-report-2026-07-19]] — 2026-07-19 lint: 14 dead refs → 7 fixed, 6 orphans triaged, 15 frontmatter gaps

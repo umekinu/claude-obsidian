@@ -33,15 +33,15 @@ Run "lint the wiki" every 10-15 ingests to catch orphans and gaps.
 
 Two append-only files extend the wiki as session-to-session memory, distinct from the domain wiki content:
 
-- [wiki/meta/mistakes.md](wiki/meta/mistakes.md) — corrected Claude behavior patterns.
+- [wiki/meta/claude-kaizen.md](wiki/meta/claude-kaizen.md) — corrected Claude behavior patterns / improvement points (renamed from `mistakes.md` on 2026-09-30; `mistakes` kept as an alias).
 - [wiki/meta/preferences.md](wiki/meta/preferences.md) — working-style preferences discovered during sessions (the static profile — affiliation, response language, citation format — stays in this file, not there).
 
 **Read**: at the start of any session that will touch this vault, read both files (they're short by design) alongside `wiki/hot.md`.
 
-**Write to `mistakes.md`** only when all three hold: the user gave an explicit correction (not a self-noticed issue), the pattern is likely to recur, and it can be stated as a concrete do/don't. Entry format:
+**Write to `claude-kaizen.md`** when all three hold: (1) the user gave an explicit correction or suggested an improvement — or Claude noticed an improvement itself, proposed it, and the user approved recording it (never record self-noticed items without approval); (2) the pattern is likely to recur; (3) it can be stated as a concrete do/don't or "next time, do X". Two entry types — **Correction** (format below) and **Improvement** (`**Current**` / `**Better**` / `**Trigger**`); full formats are in the file itself. Correction format:
 
 ```
-## YYYY-MM-DD: [one-line description]
+## YYYY-MM-DD: [Correction] [one-line description]
 **NG Action**: what happened
 **Correct Action**: what should happen instead
 **Trigger**: when this applies
@@ -56,6 +56,18 @@ Two append-only files extend the wiki as session-to-session memory, distinct fro
 ```
 
 New entries always go at the top; never edit past entries.
+
+## Auto-Session-Logging (2026-09-01+)
+
+At the end of **every** session that touches this vault, automatically file a
+full session note via the `/save` workflow (`skills/save/SKILL.md`) —
+**without** applying that skill's "What to Save vs. Skip" filter. Every
+session gets logged, not just ones with a notable insight or decision.
+This overrides the skill's default curation-only behavior for this vault.
+
+Origin: user preference, recorded in `wiki/meta/preferences.md` (2026-09-01
+entry). The skill file itself is left unmodified (upstream-syncable); this
+project-level rule in `CLAUDE.md` is what applies the override.
 
 ## Cross-Project Access
 
